@@ -8,13 +8,13 @@ mkdir ./Random500
 
 for i in $(seq 1 10); do
     cd Random500
-    #subcritica
+    #subcritical
     python3 ../random_graph.py 500 0.001 $i
-    #critica
+    #critical
     python3 ../random_graph.py 500 0.002 $i
-    #supercritica
+    #supercritical
     python3 ../random_graph.py 500 0.009 $i
-    #conectada
+    #connected 
     python3 ../random_graph.py 500 0.1 $i
 done
 
@@ -25,13 +25,13 @@ mkdir ./Random1000
 #-----------------------
 for i in $(seq 1 10); do
     cd Random1000
-    #subcritica
+    #subcritical
     python3 ../random_graph.py 1000 0.0009 $i
-    #critica
+    #critical
     python3 ../random_graph.py 1000 0.001 $i
-    #supercritica
+    #supercritical
     python3 ../random_graph.py 1000 0.005 $i
-    #conectada
+    #connected
     python3 ../random_graph.py 1000 0.009 $i
 done
 
@@ -42,13 +42,13 @@ mkdir ./Random5000
 #-----------------------
 for i in $(seq 1 10); do
     cd Random5000
-    #subcritica
+    #subcritical
     python3 ../random_graph.py 5000 0.0001 $i
-    #critica
+    #critical
     python3 ../random_graph.py 5000 0.0002 $i
-    #supercritica
+    #supercritical
     python3 ../random_graph.py 5000 0.0009 $i
-    #conectada
+    #connected
     python3 ../random_graph.py 5000 0.002 $i
 done
 
