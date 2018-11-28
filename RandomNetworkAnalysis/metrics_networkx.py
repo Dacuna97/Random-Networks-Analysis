@@ -35,52 +35,37 @@ file_name = sys.argv[2]
 index = len(sys.argv[2]) - 5
 print(file_name[index])
 
-existe = os.path.exists("./Metrics/metrics_" + sys.argv[1] + ".csv")
+exists = os.path.exists("./Metrics/metrics_" + sys.argv[1] + ".csv")
 
 f = open("./Metrics/metrics_" + sys.argv[1] + ".csv", "+a")
-if sys.argv[1] == "random":
-    if not existe:
+if not exists:
         f.write("N;P;Links;Average degree;Density;Largest Hub Degre;Avg distance;Avg clustering coefficient;Number of connected componentes\n")
-else:
-    if not existe:
-        f.write("m;N;Links;Density;Largest Hub Degre;Avg distance;Avg clustering coefficient\n")
-
 print(sys.argv[2])
 print("m")
-if sys.argv[1] == "scale_free":
-    f.write(sys.argv[4] + ';')
+
 
 print("N")
 f.write(str(n) + ';')
 
-if sys.argv[1] == "random":
-    f.write(sys.argv[4] + ';') 
+f.write(sys.argv[4] + ';') 
 
-print("Links")
 f.write(str(l) + ';')
 
-if sys.argv[1] == "random":
-    f.write(str(np.mean(degrees)) + ';')
+f.write(str(np.mean(degrees)) + ';')
 
-print("Density")
 d = l*2.0/float(n*(n-1))
 f.write(str(d) + ';')
 
-print("Largest Hub Degree")
 kmax = max(degrees)
 f.write(str(kmax) + ';')
 
-print("avg distance")
 if(nx.is_connected(G)):
-    print("connected")
     f.write(str(nx.average_shortest_path_length(G)) + ';')
 else:
     f.write("INFINITY;")
 
-print("clustering")
 f.write(str(nx.average_clustering(G)) + ';')
 
-if sys.argv[1] == "random":
-    f.write(str(nx.number_connected_components(G)))
+f.write(str(nx.number_connected_components(G)))
 
 f.write('\n')
